@@ -1,0 +1,191 @@
+{
+  "categories": [
+    {
+      "id": "salchipapas",
+      "title": "Salchipapas",
+      "subtitle": "Para compartir (o no)",
+      "accentColor": "accent-red",
+      "items": [
+        {
+          "name": "Sencillas",
+          "description": "Papas, salchicha, tocineta y queso mozzarella",
+          "price": 19000,
+          "image": "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=800&h=600&fit=crop",
+          "badge": {
+            "text": "Popular",
+            "color": "red"
+          }
+        },
+        {
+          "name": "Especial",
+          "description": "Papas, salchicha, tocineta, queso mozzarella, queso cheddar y maicitos",
+          "price": 16500,
+          "image": "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=800&h=600&fit=crop"
+        },
+        {
+          "name": "Mega",
+          "description": "Papas, salchicha, tocineta, queso mozzarella, queso cheddar, maicitos, aguacate, butifarras, huevo de codorniz",
+          "price": 35000,
+          "image": "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=800&h=600&fit=crop",
+          "badge": {
+            "text": "XL",
+            "color": "red"
+          }
+        },
+        {
+          "name": "Montañera",
+          "description": "Papas, salchicha, tocineta, chicharrón, maduro frito y queso mozzarella",
+          "price": 19000,
+          "image": "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=800&h=600&fit=crop"
+        },
+        {
+          "name": "Salchipollo",
+          "description": "Papas, salchicha, aguacate, trozos de pechuga, tocineta y queso",
+          "price": 19000,
+          "image": "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=800&h=600&fit=crop"
+        }
+      ]
+    },
+    {
+      "id": "hamburguesas",
+      "title": "Hamburguesas",
+      "subtitle": "Con porción de papas incluida",
+      "accentColor": "primary",
+      "subcategories": [
+        {
+          "name": "Artesanales",
+          "items": [
+            {
+              "name": "Sencilla",
+              "description": "Pan artesanal, vegetales, carne, queso mozzarella, tocineta y porción de papas",
+              "price": 20000,
+              "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=800&h=600&fit=crop"
+            },
+            {
+              "name": "Especial",
+              "description": "Pan artesanal, vegetales, carne, queso mozzarella, queso cheddar, tocineta, aguacate y porción de papas",
+              "price": 23500,
+              "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=800&h=600&fit=crop",
+              "badge": {
+                "text": "Popular",
+                "color": "red"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Ahumadas",
+          "items": [
+            {
+              "name": "Sencilla",
+              "description": "Pan artesanal, vegetales, carne ahumada, queso mozzarella, tocineta y porción de papas",
+              "price": 20000,
+              "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=800&h=600&fit=crop",
+              "badge": {
+                "text": "Nuevo",
+                "color": "green"
+              }
+            },
+            {
+              "name": "Especial",
+              "description": "Pan artesanal, vegetales, carne ahumada, queso mozzarella, queso cheddar y porción de papas",
+              "price": 23500,
+              "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=800&h=600&fit=crop"
+            }
+          ]
+        },
+        {
+          "name": "Pollo",
+          "items": [
+            {
+              "name": "Sencilla",
+              "description": "Pan artesanal, vegetales, pechuga de pollo, queso mozzarella, tocineta y porción de papas",
+              "price": 20000,
+              "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=800&h=600&fit=crop"
+            },
+            {
+              "name": "Especial",
+              "description": "Pan artesanal, vegetales, pechuga de pollo, queso mozzarella, queso cheddar, tocineta, aguacate y porción de papas",
+              "price": 23500,
+              "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=800&h=600&fit=crop"
+            },
+            {
+              "name": "Mixta",
+              "description": "Pan artesanal, vegetales, doble carne, tocineta, queso mozzarella, aguacate y porción de papas",
+              "price": 27000,
+              "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=800&h=600&fit=crop",
+              "badge": {
+                "text": "Especial",
+                "color": "brown"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "carnes",
+      "title": "Carnes",
+      "subtitle": "A la parrilla con papas, arepa y ensalada",
+      "accentColor": "accent-red",
+      "items": [
+        {
+          "name": "Chuzo",
+          "description": "Papas, arepa y ensalada",
+          "price": 17500,
+          "image": "https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=800&h=600&fit=crop"
+        },
+        {
+          "name": "Chicharrón",
+          "description": "Papas, arepa y ensalada",
+          "price": 19000,
+          "image": "https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=800&h=600&fit=crop"
+        },
+        {
+          "name": "Carne de Res",
+          "description": "Papas, arepa y ensalada",
+          "price": 22000,
+          "image": "https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=800&h=600&fit=crop"
+        },
+        {
+          "name": "Carne de Cerdo",
+          "description": "Papas, arepa y ensalada",
+          "price": 18000,
+          "image": "https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=800&h=600&fit=crop"
+        },
+        {
+          "name": "Chorizo",
+          "description": "Papas, arepa y ensalada",
+          "price": 18000,
+          "image": "https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=800&h=600&fit=crop"
+        }
+      ]
+    },
+    {
+      "id": "bebidas",
+      "title": "Bebidas",
+      "subtitle": "Para acompañar tu comida",
+      "accentColor": "accent-green",
+      "items": [
+        {
+          "name": "Gaseosas",
+          "description": "Coca-Cola, Sprite, Fanta y más",
+          "price": 3000,
+          "image": "https://images.unsplash.com/photo-1437418747212-8d9709afab22?w=800&h=600&fit=crop"
+        },
+        {
+          "name": "Cerveza Águila",
+          "description": "Cerveza nacional refrescante",
+          "price": 4000,
+          "image": "https://images.unsplash.com/photo-1437418747212-8d9709afab22?w=800&h=600&fit=crop"
+        },
+        {
+          "name": "Cerveza Pilsen",
+          "description": "Cerveza nacional premium",
+          "price": 4000,
+          "image": "https://images.unsplash.com/photo-1437418747212-8d9709afab22?w=800&h=600&fit=crop"
+        }
+      ]
+    }
+  ]
+}

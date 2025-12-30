@@ -1,16 +1,38 @@
 ---
-
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
+import Hero from '../sections/Hero.astro';
+import Menu from '../sections/Menu.astro';
+import ContactInfo from '../sections/ContactInfo.astro';
+import '../styles/global.css'; 
 ---
 
-<html lang="en">
+<html lang="es" class="dark scroll-smooth">
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+        <title>Deja Burg - Menú Principal Moderno</title>
+
+        <!-- Material Symbols Icons -->
+        <link href="https://fonts.googleapis.com" rel="preconnect"/>
+        <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 	</head>
-	<body>
-		<h1>Astro</h1>
+	<body class="bg-bg-main text-gray-100 font-body overflow-x-hidden antialiased selection:bg-primary selection:text-black">
+        <div class="relative flex min-h-screen w-full flex-col">
+            <Header />
+            
+            <main class="flex-1 w-full">
+                <Hero />
+                <Menu />
+                <ContactInfo />
+            </main>
+            
+            <Footer />
+            <WhatsAppButton />
+        </div>
 	</body>
 </html>

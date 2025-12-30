@@ -1,1 +1,39 @@
 @import "tailwindcss";
+
+/* DM Sans – texto */
+@import "@fontsource/dm-sans/400.css";
+@import "@fontsource/dm-sans/500.css";
+
+/* Oswald – títulos */
+@import "@fontsource/oswald/500.css";
+@import "@fontsource/oswald/600.css";
+
+@theme {
+    /* Colors */
+    --color-primary: #FF9F1C;
+    --color-accent-red: #D90429;
+    --color-accent-green: #70E000;
+    --color-accent-brown: #582F0E;
+
+    --color-bg-main: #0f0f0f;
+    --color-bg-card: #181818;
+    --color-border-subtle: #2a2a2a;
+
+    /* Fonts */
+    --font-display: "Oswald", sans-serif;
+    --font-body: "DM Sans", sans-serif;
+
+    /* Border Radius */
+    --radius-card: 1rem;
+    --radius-btn: 0.5rem;
+}
+
+/* Custom Utilities */
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}

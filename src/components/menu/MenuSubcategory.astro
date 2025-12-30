@@ -1,0 +1,38 @@
+---
+import MenuItem from './MenuItem.astro';
+
+interface Props {
+  subcategory: {
+    name: string;
+    items: Array<{
+      name: string;
+      description: string;
+      price: number;
+      image?: string;
+      badge?: {
+        text: string;
+        color: string;
+      };
+    }>;
+  };
+  accentColor: string;
+  whatsappNumber: string;
+}
+
+const { subcategory, accentColor, whatsappNumber } = Astro.props;
+---
+
+<div>
+    <h3 class="font-display text-xl sm:text-2xl font-bold uppercase text-gray-300 mb-4 sm:mb-6 tracking-wide">
+        {subcategory.name}
+    </h3>
+    <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-6 lg:gap-8">
+        {subcategory.items.map(item => (
+            <MenuItem 
+                item={item} 
+                accentColor={accentColor}
+                whatsappNumber={whatsappNumber}
+            />
+        ))}
+    </div>
+</div>

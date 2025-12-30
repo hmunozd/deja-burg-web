@@ -1,0 +1,90 @@
+---
+import { formatPrice } from '../../data/menu.ts';
+
+interface Props {
+  item: {
+    name: string;
+    description: string;
+    price: number;
+    image?: string;
+    badge?: {
+      text: string;
+      color: string;
+    };
+  };
+  accentColor: string;
+  whatsappNumber: string;
+}
+
+const { item, accentColor, whatsappNumber } = Astro.props;
+
+function getWhatsAppUrl(productName: string, price: number) {
+  const message = `Hola! Me gustaría pedir: ${productName} (${formatPrice(price)}) 🍔`;
+  return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+}
+
+function getBadgeColor(color: string) {
+  const colors = {
+    'red': 'bg-accent-red text-white',
+    'green': 'bg-accent-green text-bg-main',
+    'brown': 'bg-accent-brown text-white',
+    'primary': 'bg-primary text-black'
+  };
+  return colors[color as keyof typeof colors] || colors.primary;
+}
+
+function getHoverColor(color: string) {
+  const colors = {
+    'primary': 'hover:border-primary/50 hover:shadow-[0_0_30px_rgba(255,159,28,0.1)] group-hover:bg-accent-brown group-hover:text-primary',
+    'accent-red': 'hover:border-accent-red/50 hover:shadow-[0_0_30px_rgba(217,4,41,0.1)] group-hover:bg-accent-red group-hover:text-accent-red',
+    'accent-green': 'hover:border-accent-green/50 hover:shadow-[0_0_30px_rgba(112,224,0,0.1)] group-hover:bg-accent-green group-hover:text-accent-green'
+  };
+  return colors[color as keyof typeof colors] || colors.primary;
+}
+
+function getPriceTagColor(color: string) {
+  if (color === 'accent-red') return 'bg-accent-red text-white';
+  if (color === 'accent-green') return 'bg-accent-green text-bg-main';
+  return 'bg-primary text-black';
+}
+---
+
+<div class={`group bg-bg-card rounded-card border border-border-subtle overflow-hidden transition-all duration-300 flex flex-col h-full active:scale-[0.98] ${getHoverColor(accentColor)}`}>
+    <div class="relative aspect-[5/4] overflow-hidden">
+        {item.image ? (
+            <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110 group-active:scale-105" style={`background-image: url("${item.image}");`}></div>
+        ) : (
+            <div class="absolute inset-0 bg-gray-800 animate-pulse"></div>
+        )}
+        <div class="absolute inset-0 bg-gradient-to-t from-bg-card via-transparent to-transparent opacity-80"></div>
+        {item.badge && (
+            <div class="absolute top-3 right-3">
+                <span class={`px-2.5 py-0.5 text-[10px] sm:text-xs font-display font-bold uppercase tracking-wider rounded shadow-lg ${getBadgeColor(item.badge.color)}`}>
+                    {item.badge.text}
+                </span>
+            </div>
+        )}
+    </div>
+    <div class="p-4 sm:p-6 flex flex-col flex-1 relative">
+        <div class={`absolute -top-4 sm:-top-5 left-4 sm:left-6 font-display font-bold text-base sm:text-lg px-3 sm:px-4 py-1 rounded shadow-lg transform -rotate-2 group-hover:rotate-0 transition-transform ${getPriceTagColor(accentColor)}`}>
+            {formatPrice(item.price)}
+        </div>
+        <div class="mt-1 sm:mt-2 mb-2 sm:mb-3">
+            <h3 class="text-lg sm:text-xl font-display font-bold text-white uppercase tracking-wide transition-colors">
+                {item.name}
+            </h3>
+        </div>
+        <p class="text-gray-400 text-xs sm:text-sm leading-relaxed mb-4 sm:mb-6 flex-1 line-clamp-3">
+            {item.description}
+        </p>
+        <a 
+            href={getWhatsAppUrl(item.name, item.price)}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="w-full py-2.5 sm:py-3 rounded-btn bg-border-subtle hover:bg-white hover:text-bg-main active:bg-white active:text-bg-main text-white font-display font-bold uppercase tracking-wider text-xs sm:text-sm transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-95"
+        >
+            <span class="material-symbols-outlined text-base sm:text-[20px]">add_shopping_cart</span>
+            Agregar
+        </a>
+    </div>
+</div>
