@@ -32,10 +32,9 @@ interface Props {
       };
     }>;
   };
-  whatsappNumber: string;
 }
 
-const { category, whatsappNumber } = Astro.props;
+const { category } = Astro.props;
 ---
 
 <section id={category.id}>
@@ -62,7 +61,6 @@ const { category, whatsappNumber } = Astro.props;
                 <MenuSubcategory 
                     subcategory={subcategory}
                     accentColor={category.accentColor}
-                    whatsappNumber={whatsappNumber}
                 />
             ))}
         </div>
@@ -72,7 +70,6 @@ const { category, whatsappNumber } = Astro.props;
                 <MenuItem 
                     item={item}
                     accentColor={category.accentColor}
-                    whatsappNumber={whatsappNumber}
                 />
             ))}
         </div>

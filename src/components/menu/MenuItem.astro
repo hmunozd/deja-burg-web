@@ -13,15 +13,9 @@ interface Props {
     };
   };
   accentColor: string;
-  whatsappNumber: string;
 }
 
-const { item, accentColor, whatsappNumber } = Astro.props;
-
-function getWhatsAppUrl(productName: string, price: number) {
-  const message = `Hola! Me gustaría pedir: ${productName} (${formatPrice(price)}) 🍔`;
-  return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
-}
+const { item, accentColor } = Astro.props;
 
 function getBadgeColor(color: string) {
   const colors = {
@@ -49,7 +43,7 @@ function getPriceTagColor(color: string) {
 }
 ---
 
-<div class={`group bg-bg-card rounded-card border border-border-subtle overflow-hidden transition-all duration-300 flex flex-col h-full active:scale-[0.98] ${getHoverColor(accentColor)}`}>
+<div class={`menu-item group bg-bg-card rounded-card border border-border-subtle overflow-hidden transition-all duration-300 flex flex-col h-full active:scale-[0.98] ${getHoverColor(accentColor)}`}>
     <div class="relative aspect-[5/4] overflow-hidden">
         {item.image ? (
             <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110 group-active:scale-105" style={`background-image: url("${item.image}");`}></div>
@@ -77,14 +71,47 @@ function getPriceTagColor(color: string) {
         <p class="text-gray-400 text-xs sm:text-sm leading-relaxed mb-4 sm:mb-6 flex-1 line-clamp-3">
             {item.description}
         </p>
-        <a 
-            href={getWhatsAppUrl(item.name, item.price)}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="w-full py-2.5 sm:py-3 rounded-btn bg-border-subtle hover:bg-white hover:text-bg-main active:bg-white active:text-bg-main text-white font-display font-bold uppercase tracking-wider text-xs sm:text-sm transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-95"
+        <button 
+            class="add-to-cart-btn w-full py-2.5 sm:py-3 rounded-btn bg-border-subtle hover:bg-white hover:text-bg-main active:bg-white active:text-bg-main text-white font-display font-bold uppercase tracking-wider text-xs sm:text-sm transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-95"
+            data-name={item.name}
+            data-price={item.price}
         >
             <span class="material-symbols-outlined text-base sm:text-[20px]">add_shopping_cart</span>
-            Agregar
-        </a>
+            <span class="btn-text">Agregar</span>
+        </button>
     </div>
 </div>
+
+<script>
+  import { addToCart } from '../../utils/cartStore';
+  
+  document.addEventListener('DOMContentLoaded', () => {
+    const buttons = document.querySelectorAll<HTMLButtonElement>('.add-to-cart-btn');
+    
+    buttons.forEach(button => {
+      button.addEventListener('click', (e) => {
+        e.preventDefault();
+        
+        const name = button.getAttribute('data-name');
+        const price = parseFloat(button.getAttribute('data-price') || '0');
+        
+        if (name && price) {
+          addToCart(name, price);
+          
+          const btnText = button.querySelector('.btn-text');
+          const originalText = btnText?.textContent;
+          
+          if (btnText) {
+            btnText.textContent = '¡Agregado!';
+            button.classList.add('!bg-accent-green', '!text-bg-main');
+            
+            setTimeout(() => {
+              btnText.textContent = originalText || 'Agregar';
+              button.classList.remove('!bg-accent-green', '!text-bg-main');
+            }, 1000);
+          }
+        }
+      });
+    });
+  });
+</script>

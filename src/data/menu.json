@@ -9,8 +9,8 @@
         {
           "name": "Sencillas",
           "description": "Papas, salchicha, tocineta y queso mozzarella",
-          "price": 19000,
-          "image": "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=800&h=600&fit=crop",
+          "price": 12000,
+          "image": "https://res.cloudinary.com/ddixstnte/image/upload/v1767394033/Salchipapa-sencilla_c0tfda.webp",
           "badge": {
             "text": "Popular",
             "color": "red"
@@ -20,13 +20,13 @@
           "name": "Especial",
           "description": "Papas, salchicha, tocineta, queso mozzarella, queso cheddar y maicitos",
           "price": 16500,
-          "image": "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=800&h=600&fit=crop"
+          "image": "https://res.cloudinary.com/ddixstnte/image/upload/v1767393970/Salchipapa_-_Especial_mzbcix.webp"
         },
         {
           "name": "Mega",
           "description": "Papas, salchicha, tocineta, queso mozzarella, queso cheddar, maicitos, aguacate, butifarras, huevo de codorniz",
           "price": 35000,
-          "image": "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=800&h=600&fit=crop",
+          "image": "https://res.cloudinary.com/ddixstnte/image/upload/v1767393973/Salchipapa_-_MEGA_a7hb3j.webp",
           "badge": {
             "text": "XL",
             "color": "red"
@@ -36,13 +36,13 @@
           "name": "Montañera",
           "description": "Papas, salchicha, tocineta, chicharrón, maduro frito y queso mozzarella",
           "price": 19000,
-          "image": "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=800&h=600&fit=crop"
+          "image": "https://res.cloudinary.com/ddixstnte/image/upload/v1767393975/salchipapa_-_Monta%C3%B1era_bwpijn.webp"
         },
         {
           "name": "Salchipollo",
           "description": "Papas, salchicha, aguacate, trozos de pechuga, tocineta y queso",
           "price": 19000,
-          "image": "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=800&h=600&fit=crop"
+          "image": "https://res.cloudinary.com/ddixstnte/image/upload/v1767393977/salchipapa_-_Salchipollo_uucnju.webp"
         }
       ]
     },
@@ -59,13 +59,13 @@
               "name": "Sencilla",
               "description": "Pan artesanal, vegetales, carne, queso mozzarella, tocineta y porción de papas",
               "price": 20000,
-              "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=800&h=600&fit=crop"
+              "image": "https://res.cloudinary.com/ddixstnte/image/upload/v1767393957/Hamburguesa_-_Sencilla_aruaxz.webp"
             },
             {
               "name": "Especial",
               "description": "Pan artesanal, vegetales, carne, queso mozzarella, queso cheddar, tocineta, aguacate y porción de papas",
               "price": 23500,
-              "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=800&h=600&fit=crop",
+              "image": "https://res.cloudinary.com/ddixstnte/image/upload/v1767393954/Hamburguesa_-_Especial_kvhnas.webp",
               "badge": {
                 "text": "Popular",
                 "color": "red"
@@ -80,7 +80,7 @@
               "name": "Sencilla",
               "description": "Pan artesanal, vegetales, carne ahumada, queso mozzarella, tocineta y porción de papas",
               "price": 20000,
-              "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=800&h=600&fit=crop",
+              "image": "https://res.cloudinary.com/ddixstnte/image/upload/v1767393961/Hamburguesa_Ahumada_-_Sencilla_usvz2e.webp",
               "badge": {
                 "text": "Nuevo",
                 "color": "green"
@@ -90,7 +90,7 @@
               "name": "Especial",
               "description": "Pan artesanal, vegetales, carne ahumada, queso mozzarella, queso cheddar y porción de papas",
               "price": 23500,
-              "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=800&h=600&fit=crop"
+              "image": "https://res.cloudinary.com/ddixstnte/image/upload/v1767393959/Hamburguesa_Ahumada_-_Especial_s0io9y.webp"
             }
           ]
         },
@@ -101,19 +101,19 @@
               "name": "Sencilla",
               "description": "Pan artesanal, vegetales, pechuga de pollo, queso mozzarella, tocineta y porción de papas",
               "price": 20000,
-              "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=800&h=600&fit=crop"
+              "image": "https://res.cloudinary.com/ddixstnte/image/upload/v1767393968/Hamburguesa_Pollo_-_Sencilla_ajpop6.webp"
             },
             {
               "name": "Especial",
               "description": "Pan artesanal, vegetales, pechuga de pollo, queso mozzarella, queso cheddar, tocineta, aguacate y porción de papas",
               "price": 23500,
-              "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=800&h=600&fit=crop"
+              "image": "https://res.cloudinary.com/ddixstnte/image/upload/v1767393964/Hamburguesa_Pollo_-_Especial_b8gotx.webp"
             },
             {
               "name": "Mixta",
               "description": "Pan artesanal, vegetales, doble carne, tocineta, queso mozzarella, aguacate y porción de papas",
               "price": 27000,
-              "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=800&h=600&fit=crop",
+              "image": "https://res.cloudinary.com/ddixstnte/image/upload/v1767393966/Hamburguesa_Pollo_-_Mixta_dcznlx.webp",
               "badge": {
                 "text": "Especial",
                 "color": "brown"
@@ -133,31 +133,31 @@
           "name": "Chuzo",
           "description": "Papas, arepa y ensalada",
           "price": 17500,
-          "image": "https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=800&h=600&fit=crop"
+          "image": "https://res.cloudinary.com/ddixstnte/image/upload/v1767393952/Carnes_-_Chuzo_xvhjsg.webp"
         },
         {
           "name": "Chicharrón",
           "description": "Papas, arepa y ensalada",
           "price": 19000,
-          "image": "https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=800&h=600&fit=crop"
+          "image": "https://res.cloudinary.com/ddixstnte/image/upload/v1767393945/Carnes_-_Chicharron_ztocpq.webp"
         },
         {
           "name": "Carne de Res",
           "description": "Papas, arepa y ensalada",
           "price": 22000,
-          "image": "https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=800&h=600&fit=crop"
+          "image": "https://res.cloudinary.com/ddixstnte/image/upload/v1767393943/Carnes_-_Carne_de_Res_dlymmi.webp"
         },
         {
           "name": "Carne de Cerdo",
           "description": "Papas, arepa y ensalada",
           "price": 18000,
-          "image": "https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=800&h=600&fit=crop"
+          "image": "https://res.cloudinary.com/ddixstnte/image/upload/v1767393880/Carnes_-_Carne_de_CERDO_hwhhrf.webp"
         },
         {
           "name": "Chorizo",
           "description": "Papas, arepa y ensalada",
-          "price": 18000,
-          "image": "https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=800&h=600&fit=crop"
+          "price": "-",
+          "image": "https://res.cloudinary.com/ddixstnte/image/upload/v1767393950/Carnes_-_Chorizo_ppw2l6.webp"
         }
       ]
     },
@@ -171,19 +171,19 @@
           "name": "Gaseosas",
           "description": "Coca-Cola, Sprite, Fanta y más",
           "price": 3000,
-          "image": "https://images.unsplash.com/photo-1437418747212-8d9709afab22?w=800&h=600&fit=crop"
+          "image": "https://images.unsplash.com/photo-1629186235045-80d4147d90dc?q=80&w=764&auto=format&fit=crop"
         },
         {
           "name": "Cerveza Águila",
           "description": "Cerveza nacional refrescante",
           "price": 4000,
-          "image": "https://images.unsplash.com/photo-1437418747212-8d9709afab22?w=800&h=600&fit=crop"
+          "image": "https://images.unsplash.com/photo-1608270586620-248524c67de9?q=80&w=1170&auto=format&fit=crop"
         },
         {
           "name": "Cerveza Pilsen",
           "description": "Cerveza nacional premium",
           "price": 4000,
-          "image": "https://images.unsplash.com/photo-1437418747212-8d9709afab22?w=800&h=600&fit=crop"
+          "image": "https://images.unsplash.com/photo-1608270586620-248524c67de9?q=80&w=1170&auto=format&fit=crop"
         }
       ]
     }

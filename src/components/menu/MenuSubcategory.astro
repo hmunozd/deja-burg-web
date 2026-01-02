@@ -16,10 +16,9 @@ interface Props {
     }>;
   };
   accentColor: string;
-  whatsappNumber: string;
 }
 
-const { subcategory, accentColor, whatsappNumber } = Astro.props;
+const { subcategory, accentColor } = Astro.props;
 ---
 
 <div>
@@ -31,7 +30,6 @@ const { subcategory, accentColor, whatsappNumber } = Astro.props;
             <MenuItem 
                 item={item} 
                 accentColor={accentColor}
-                whatsappNumber={whatsappNumber}
             />
         ))}
     </div>

@@ -1,7 +1,5 @@
 ---
 const whatsappNumber = "573236588465";
-const whatsappMessage = "Hola! Me gustaría hacer un pedido 🍔";
-const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
 ---
 
 <div class="sticky top-0 z-50 w-full bg-bg-main/90 backdrop-blur-lg border-b border-border-subtle">
@@ -19,28 +17,36 @@ const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(w
                 <a class="text-sm font-bold uppercase tracking-wider text-primary" href="#">Menú</a>
                 <a class="text-sm font-bold uppercase tracking-wider text-gray-400 hover:text-primary transition-colors" href="#">Promos</a>
                 <a class="text-sm font-bold uppercase tracking-wider text-gray-400 hover:text-primary transition-colors" href="#">Locales</a>
-                <a 
-                    href={whatsappUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                <button 
+                    id="header-cart-btn"
                     class="relative group flex items-center justify-center gap-2 rounded-full px-6 py-2.5 bg-accent-red hover:bg-red-600 transition-all text-white font-display font-bold uppercase tracking-wide shadow-[0_0_15px_rgba(217,4,41,0.3)] hover:shadow-[0_0_20px_rgba(217,4,41,0.5)] cursor-pointer"
                 >
                     <span class="material-symbols-outlined text-[20px]">shopping_cart</span>
                     <span>Pedir</span>
-                </a>
+                    <span
+                        id="header-cart-badge"
+                        class="absolute -top-1 -right-1 size-5 bg-primary text-black text-xs font-bold rounded-full flex items-center justify-center shadow-lg opacity-0 scale-0 transition-all duration-300"
+                    >
+                        0
+                    </span>
+                </button>
             </nav>
             
             <!-- Mobile Order Button + Menu -->
             <div class="flex md:hidden items-center gap-2">
-                <a 
-                    href={whatsappUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="flex items-center justify-center gap-1.5 rounded-full px-4 py-2 bg-accent-red text-white font-display font-bold uppercase text-xs tracking-wide shadow-lg cursor-pointer active:scale-95 transition-transform"
+                <button 
+                    id="mobile-cart-btn"
+                    class="relative flex items-center justify-center gap-1.5 rounded-full px-4 py-2 bg-accent-red text-white font-display font-bold uppercase text-xs tracking-wide shadow-lg cursor-pointer active:scale-95 transition-transform"
                 >
                     <span class="material-symbols-outlined text-base">shopping_cart</span>
                     <span>Pedir</span>
-                </a>
+                    <span
+                        id="mobile-cart-badge"
+                        class="absolute -top-1 -right-1 size-5 bg-primary text-black text-xs font-bold rounded-full flex items-center justify-center shadow-lg opacity-0 scale-0 transition-all duration-300"
+                    >
+                        0
+                    </span>
+                </button>
                 <button class="p-2 text-gray-300 hover:text-white cursor-pointer active:scale-95 transition-transform">
                     <span class="material-symbols-outlined text-2xl">menu</span>
                 </button>
@@ -48,3 +54,64 @@ const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(w
         </header>
     </div>
 </div>
+
+<script>
+  import { getCartCount, onCartUpdate, formatCartForWhatsApp } from '../utils/cartStore';
+  
+  const whatsappNumber = "573236588465";
+  
+  function updateHeaderBadges() {
+    const headerBadge = document.getElementById('header-cart-badge');
+    const mobileBadge = document.getElementById('mobile-cart-badge');
+    const count = getCartCount();
+    
+    [headerBadge, mobileBadge].forEach(badge => {
+      if (badge) {
+        badge.textContent = count.toString();
+        
+        if (count > 0) {
+          badge.classList.add('cart-badge-visible');
+        } else {
+          badge.classList.remove('cart-badge-visible');
+        }
+      }
+    });
+  }
+  
+  function handleCartButtonClick() {
+    const count = getCartCount();
+    
+    if (count === 0) {
+      const message = formatCartForWhatsApp();
+      window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, '_blank');
+    } else {
+      const modal = document.getElementById('cart-modal');
+      if (modal) {
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+      }
+    }
+  }
+  
+  document.addEventListener('DOMContentLoaded', () => {
+    updateHeaderBadges();
+    
+    onCartUpdate(() => {
+      updateHeaderBadges();
+    });
+    
+    const headerBtn = document.getElementById('header-cart-btn');
+    const mobileBtn = document.getElementById('mobile-cart-btn');
+    
+    headerBtn?.addEventListener('click', handleCartButtonClick);
+    mobileBtn?.addEventListener('click', handleCartButtonClick);
+  });
+</script>
+
+<style>
+  .cart-badge-visible {
+    opacity: 1 !important;
+    scale: 1 !important;
+  }
+</style>
+
