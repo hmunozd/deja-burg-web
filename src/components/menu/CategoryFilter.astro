@@ -9,13 +9,19 @@ const { categories } = Astro.props;
 <div class="sticky top-[64px] sm:top-[80px] z-40 w-full bg-bg-main/95 backdrop-blur-md border-b border-border-subtle shadow-2xl shadow-black/50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-4">
         <div class="flex gap-2 sm:gap-4 overflow-x-auto hide-scrollbar">
-            <button class="shrink-0 px-4 sm:px-6 py-1.5 sm:py-2 rounded-full bg-white text-bg-main font-display font-bold uppercase tracking-wider text-xs sm:text-sm hover:scale-105 transition-transform cursor-pointer active:scale-95">
+            <button 
+                onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+                class="shrink-0 px-4 sm:px-6 py-1.5 sm:py-2 rounded-full bg-white text-bg-main font-display font-bold uppercase tracking-wider text-xs sm:text-sm hover:scale-105 transition-transform cursor-pointer active:scale-95"
+            >
                 Todo
             </button>
             {categories.map(category => (
-                <button class="shrink-0 px-4 sm:px-6 py-1.5 sm:py-2 rounded-full bg-bg-card border border-border-subtle text-gray-300 font-display font-medium uppercase tracking-wider text-xs sm:text-sm hover:border-primary hover:text-white transition-colors cursor-pointer active:scale-95">
+                <a 
+                    href={`#${category.id}`}
+                    class="shrink-0 px-4 sm:px-6 py-1.5 sm:py-2 rounded-full bg-bg-card border border-border-subtle text-gray-300 font-display font-medium uppercase tracking-wider text-xs sm:text-sm hover:border-primary hover:text-white transition-colors cursor-pointer active:scale-95 flex items-center justify-center no-underline"
+                >
                     {category.title}
-                </button>
+                </a>
             ))}
         </div>
     </div>
