@@ -1,9 +1,23 @@
 ---
-const whatsappNumber = "573236588465";
-const phoneDisplay = "323 6588465";
-const whatsappUrl = `https://wa.me/${whatsappNumber}`;
+const CONTACT_INFO = {
+  whatsapp: {
+    number: "573236588465",
+    display: "323 6588465"
+  },
+  location: {
+    name: "Deja Burg",
+    address: "Al lado del Depósito La Terminal",
+    mapUrl: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d495.769733754253!2d-75.5399637657388!3d6.242915091050667!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e44286350a32e9f%3A0x48c55b5d954a9bdd!2sDep%C3%B3sito%20La%20Terminal!5e0!3m2!1ses-419!2sco!4v1767395855616!5m2!1ses-419!2sco"
+  },
+  schedule: [
+    { days: "Lun, Mié, Jue y Vie", hours: "6:00 PM - 10:40 PM" },
+    { days: "Sábado", hours: "12:00 PM - 11:30 PM" },
+    { days: "Domingo", hours: "5:30 PM - 11:00 PM" },
+    { days: "Martes", hours: "Cerrado", isClosed: true }
+  ]
+};
 
-const mapEmbedUrl = "https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d495.769733754253!2d-75.5399637657388!3d6.242915091050667!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2sco!4v1767071455677!5m2!1ses-419!2sco";
+const whatsappUrl = `https://wa.me/${CONTACT_INFO.whatsapp.number}`;
 ---
 
 <section class="w-full bg-bg-main border-t border-border-subtle overflow-hidden">
@@ -16,16 +30,16 @@ const mapEmbedUrl = "https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d495.7
                 <div class="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl"></div>
                 
                 <div class="relative z-10">
-                    <!-- Badge -->
-                    <div class="inline-flex items-center gap-2 mb-6">
-                        <span class="size-2 rounded-full bg-accent-red animate-pulse"></span>
-                        <span class="text-accent-red font-display font-bold uppercase text-xs tracking-[0.2em]">Abierto Ahora</span>
+                    <!-- Status Badge -->
+                    <div id="status-badge" class="inline-flex items-center gap-2 mb-6">
+                        <span id="status-dot" class="size-2 rounded-full bg-gray-500"></span>
+                        <span id="status-text" class="text-gray-500 font-display font-bold uppercase text-xs tracking-[0.2em]">Cargando...</span>
                     </div>
 
                     <!-- Title -->
                     <h2 class="font-display text-4xl sm:text-5xl lg:text-6xl font-bold uppercase leading-none tracking-tight text-white mb-6">
-                        Visítanos<br/>
-                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent-red">En el Centro</span>
+                        Encuéntranos<br/>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent-red">Fácilmente</span>
                     </h2>
 
                     <!-- Description -->
@@ -53,14 +67,15 @@ const mapEmbedUrl = "https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d495.7
                             </div>
                             <div>
                                 <h3 class="font-display font-bold uppercase text-white text-sm tracking-wider mb-1">Horario</h3>
-                                <p class="text-gray-400 text-sm">Lun, Mié, Jue y Vie: 6:00 PM - 10:40 PM</p>
-                                <p class="text-gray-400 text-sm">Sábado: 12:00 PM - 11:30 PM</p>
-                                <p class="text-gray-400 text-sm">Domingo: 5:30 PM - 11:00 PM</p>
-                                <p class="text-gray-500 text-xs mt-1 italic">Martes: Cerrado</p>
+                                {CONTACT_INFO.schedule.map(({ days, hours, isClosed }) => (
+                                    <p class={isClosed ? "text-gray-500 text-xs mt-1 italic" : "text-gray-400 text-sm"}>
+                                        {days}: {hours}
+                                    </p>
+                                ))}
                             </div>
                         </div>
 
-                        <!-- Reservaciones -->
+                        <!-- Pedidos -->
                         <div class="flex items-start gap-4 group">
                             <div class="size-12 rounded-full bg-accent-green/10 flex items-center justify-center border border-accent-green/20 shrink-0 group-hover:bg-accent-green/20 transition-colors">
                                 <span class="material-symbols-outlined text-2xl text-accent-green">call</span>
@@ -73,41 +88,20 @@ const mapEmbedUrl = "https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d495.7
                                     rel="noopener noreferrer"
                                     class="text-accent-green hover:text-accent-green/80 transition-colors text-base font-medium"
                                 >
-                                    +57 {phoneDisplay}
+                                    +57 {CONTACT_INFO.whatsapp.display}
                                 </a>
                             </div>
                         </div>
                     </div>
 
-                    <!-- CTA Buttons -->
-                    <div class="flex flex-col sm:flex-row gap-4">
-                        <a 
-                            href={whatsappUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary hover:bg-primary/90 text-black font-display font-bold uppercase text-sm tracking-wider rounded-btn transition-all shadow-lg hover:shadow-xl active:scale-95"
-                        >
-                            <span class="material-symbols-outlined text-xl">directions</span>
-                            Cómo llegar
-                        </a>
-                        <a 
-                            href={whatsappUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-border-subtle hover:bg-white hover:text-bg-main text-white font-display font-bold uppercase text-sm tracking-wider rounded-btn transition-all active:scale-95"
-                        >
-                            <span class="material-symbols-outlined text-xl">share</span>
-                            Compartir
-                        </a>
-                    </div>
+
                 </div>
             </div>
 
             <!-- Right Side - Map -->
             <div class="relative min-h-[400px] lg:min-h-full bg-gray-800">
-                <!-- Map Embed -->
                 <iframe
-                    src={mapEmbedUrl}
+                    src={CONTACT_INFO.location.mapUrl}
                     class="absolute inset-0 w-full h-full border-0"
                     allowfullscreen=""
                     loading="lazy"
@@ -122,13 +116,12 @@ const mapEmbedUrl = "https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d495.7
                             <span class="material-symbols-outlined text-xl text-black">restaurant</span>
                         </div>
                         <div class="flex-1 min-w-0">
-                            <h4 class="font-display font-bold text-white text-base mb-1">Deja Burg Centro</h4>
+                            <h4 class="font-display font-bold text-white text-base mb-1">{CONTACT_INFO.location.name}</h4>
                             <div class="flex items-center gap-2 mb-1">
-                                <span class="text-primary text-sm">★</span>
-                                <span class="text-white text-sm font-medium">4.9</span>
-                                <span class="text-gray-500 text-xs">(2.4k reseñas)</span>
+                                <span class="material-symbols-outlined text-primary text-sm">location_on</span>
+                                <span class="text-white text-sm font-medium">{CONTACT_INFO.location.address}</span>
                             </div>
-                            <p class="text-gray-400 text-xs">Hamburguesas • Comida rápida</p>
+                            <p class="text-gray-400 text-xs">Hamburguesas • Salchipapas • Comida rápida</p>
                         </div>
                     </div>
                 </div>
@@ -136,6 +129,42 @@ const mapEmbedUrl = "https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d495.7
         </div>
     </div>
 </section>
+
+<script>
+  import { isRestaurantOpen } from '../utils/businessHours';
+  
+  const STATUS_CLASSES = {
+    open: {
+      dot: 'size-2 rounded-full bg-accent-green animate-pulse',
+      text: 'text-accent-green font-display font-bold uppercase text-xs tracking-[0.2em]',
+      label: 'Abierto Ahora'
+    },
+    closed: {
+      dot: 'size-2 rounded-full bg-gray-500',
+      text: 'text-gray-500 font-display font-bold uppercase text-xs tracking-[0.2em]',
+      label: 'Cerrado'
+    }
+  };
+  
+  function updateStatus(): void {
+    const statusDot = document.getElementById('status-dot');
+    const statusText = document.getElementById('status-text');
+    
+    if (!statusDot || !statusText) return;
+    
+    const { isOpen } = isRestaurantOpen();
+    const classes = isOpen ? STATUS_CLASSES.open : STATUS_CLASSES.closed;
+    
+    statusDot.className = classes.dot;
+    statusText.className = classes.text;
+    statusText.textContent = classes.label;
+  }
+  
+  document.addEventListener('DOMContentLoaded', () => {
+    updateStatus();
+    setInterval(updateStatus, 60000);
+  });
+</script>
 
 <style>
     @keyframes pulse {
