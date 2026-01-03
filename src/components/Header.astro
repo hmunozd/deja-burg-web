@@ -5,18 +5,18 @@ const whatsappNumber = "573236588465";
 <div class="sticky top-0 z-50 w-full bg-bg-main/90 backdrop-blur-lg border-b border-border-subtle">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <header class="flex items-center justify-between h-16 sm:h-20">
-            <div class="flex items-center gap-2 sm:gap-3">
-                <div class="size-8 sm:size-10 rounded-full bg-primary/10 flex items-center justify-center text-primary border border-primary/20">
-                    <span class="material-symbols-outlined text-xl sm:text-2xl">lunch_dining</span>
+            <a href="#inicio" class="flex items-center gap-2 sm:gap-3 group cursor-pointer no-underline">
+                <div class="size-8 sm:size-10 rounded-full flex items-center justify-center overflow-hidden">
+                    <img src="/logo.webp" alt="Logo Deja Burg" class="w-full h-full object-contain" />  
                 </div>
-                <h2 class="text-white text-lg sm:text-2xl font-display font-bold tracking-wide">DEJA BURG</h2>
-            </div>
+                <h2 class="text-white text-lg sm:text-2xl font-display font-bold tracking-wide group-hover:text-primary transition-colors">DEJA BURG</h2>
+            </a>
             
+            <!-- Desktop Nav -->
             <nav class="hidden md:flex items-center gap-8">
-                <a class="text-sm font-bold uppercase tracking-wider text-gray-400 hover:text-primary transition-colors" href="#">Inicio</a>
-                <a class="text-sm font-bold uppercase tracking-wider text-primary" href="#">Menú</a>
-                <a class="text-sm font-bold uppercase tracking-wider text-gray-400 hover:text-primary transition-colors" href="#">Promos</a>
-                <a class="text-sm font-bold uppercase tracking-wider text-gray-400 hover:text-primary transition-colors" href="#">Locales</a>
+                <a class="text-sm font-bold uppercase tracking-wider text-gray-400 hover:text-primary transition-colors cursor-pointer" href="#inicio">Inicio</a>
+                <a class="text-sm font-bold uppercase tracking-wider text-primary cursor-pointer" href="#menu">Menú</a>
+                <a class="text-sm font-bold uppercase tracking-wider text-gray-400 hover:text-primary transition-colors cursor-pointer" href="#locales">Locales</a>
                 <button 
                     id="header-cart-btn"
                     class="relative group flex items-center justify-center gap-2 rounded-full px-6 py-2.5 bg-accent-red hover:bg-red-600 transition-all text-white font-display font-bold uppercase tracking-wide shadow-[0_0_15px_rgba(217,4,41,0.3)] hover:shadow-[0_0_20px_rgba(217,4,41,0.5)] cursor-pointer"
@@ -32,7 +32,6 @@ const whatsappNumber = "573236588465";
                 </button>
             </nav>
             
-            <!-- Mobile Order Button + Menu -->
             <div class="flex md:hidden items-center gap-2">
                 <button 
                     id="mobile-cart-btn"
@@ -47,7 +46,7 @@ const whatsappNumber = "573236588465";
                         0
                     </span>
                 </button>
-                <button class="p-2 text-gray-300 hover:text-white cursor-pointer active:scale-95 transition-transform">
+                <button id="mobile-menu-btn" class="p-2 text-gray-300 hover:text-white cursor-pointer active:scale-95 transition-transform">
                     <span class="material-symbols-outlined text-2xl">menu</span>
                 </button>
             </div>
@@ -55,10 +54,46 @@ const whatsappNumber = "573236588465";
     </div>
 </div>
 
+<div id="mobile-menu" class="fixed inset-0 z-60 bg-bg-main/95 backdrop-blur-xl transform translate-x-full transition-transform duration-300 md:hidden flex flex-col">
+    <div class="flex items-center justify-between p-4 border-b border-border-subtle">
+        <div class="flex items-center gap-2">
+            <div class="size-8 sm:size-10 rounded-full flex items-center justify-center overflow-hidden">
+                <img src="/logo.webp" alt="Logo Deja Burg" class="w-full h-full object-contain" />  
+            </div>
+            <span class="text-white font-display font-bold text-xl uppercase">Menú</span>
+        </div>
+        <button id="close-mobile-menu" class="p-2 text-gray-400 hover:text-white transition-colors">
+            <span class="material-symbols-outlined text-2xl">close</span>
+        </button>
+    </div>
+    <div class="flex-1 flex flex-col items-center justify-center gap-8 p-8">
+        <a href="#inicio" class="mobile-link text-2xl font-display font-bold uppercase text-white hover:text-primary transition-colors">Inicio</a>
+        <a href="#menu" class="mobile-link text-2xl font-display font-bold uppercase text-white hover:text-primary transition-colors">Menú</a>
+        <a href="#locales" class="mobile-link text-2xl font-display font-bold uppercase text-white hover:text-primary transition-colors">Locales</a>
+    </div>
+</div>
+
 <script>
   import { getCartCount, onCartUpdate, formatCartForWhatsApp } from '../utils/cartStore';
   
   const whatsappNumber = "573236588465";
+  
+  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+  const closeMobileMenuBtn = document.getElementById('close-mobile-menu');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const mobileLinks = document.querySelectorAll('.mobile-link');
+  
+  function toggleMenu() {
+    mobileMenu?.classList.toggle('translate-x-full');
+    document.body.classList.toggle('overflow-hidden');
+  }
+  
+  mobileMenuBtn?.addEventListener('click', toggleMenu);
+  closeMobileMenuBtn?.addEventListener('click', toggleMenu);
+  
+  mobileLinks.forEach(link => {
+    link.addEventListener('click', toggleMenu);
+  });
   
   function updateHeaderBadges() {
     const headerBadge = document.getElementById('header-cart-badge');
