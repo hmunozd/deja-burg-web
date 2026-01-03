@@ -13,9 +13,58 @@ import '../styles/global.css';
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/webp" href="/logo.webp" />
+		<link rel="sitemap" href="/sitemap-index.xml" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="generator" content={Astro.generator} />
-        <title>Deja Burg - Menú Principal Moderno</title>
+        
+        <!-- Primary Meta Tags -->
+        <title>Deja Burg - Hamburguesas y Salchipapas en Villa Hermosa, Medellín</title>
+        <meta name="title" content="Deja Burg - Hamburguesas y Salchipapas en Villa Hermosa, Medellín" />
+        <meta name="description" content="Las mejores hamburguesas artesanales, salchipapas y comida rápida en Villa Hermosa, Medellín. Sabor urbano legendario, ingredientes frescos y servicio a domicilio." />
+        <meta name="keywords" content="hamburguesas, medellin, villa hermosa, salchipapas, comida rapida, domicilio, restaurante, deja burg, hamburguesas artesanales" />
+
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://dejaburg.vercel.app/" />
+        <meta property="og:title" content="Deja Burg - Sabor Urbano en Villa Hermosa" />
+        <meta property="og:description" content="Hamburguesas artesanales y salchipapas con el auténtico sabor urbano en Villa Hermosa, Medellín. ¡Pide fácil por WhatsApp!" />
+        <meta property="og:image" content="https://res.cloudinary.com/ddixstnte/image/upload/v1767400934/og-dejaburg_jbwm6u.jpg" />
+        <meta property="og:locale" content="es_CO" />
+
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://dejaburg.vercel.app/" />
+        <meta property="twitter:title" content="Deja Burg - Sabor Urbano en Villa Hermosa" />
+        <meta property="twitter:description" content="Las mejores hamburguesas y salchipapas de Villa Hermosa, Medellín." />
+        <meta property="twitter:image" content="https://res.cloudinary.com/ddixstnte/image/upload/v1767400934/og-dejaburg_jbwm6u.jpg" />
+
+        <!-- Schema.org JSON-LD -->
+        <script type="application/ld+json">
+            {
+              "@context": "https://schema.org",
+              "@type": "Restaurant",
+              "name": "Deja Burg",
+              "image": "https://res.cloudinary.com/ddixstnte/image/upload/v1767400934/og-dejaburg_jbwm6u.jpg",
+              "description": "Restaurante de comida rápida urbana especializado en hamburguesas artesanales y salchipapas en Villa Hermosa, Medellín.",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Al lado del Depósito La Terminal",
+                "addressLocality": "Villa Hermosa",
+                "addressRegion": "Medellín",
+                "addressCountry": "CO"
+              },
+              "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": 6.2429,
+                "longitude": -75.5399
+              },
+              "url": "https://dejaburg.vercel.app",
+              "telephone": "+573236588465",
+              "menu": "https://dejaburg.vercel.app/#menu",
+              "servesCuisine": ["Hamburguesas", "Comida Rápida", "Salchipapas"],
+              "priceRange": "$$"
+            }
+        </script>
 
         <!-- Material Symbols Icons -->
         <link href="https://fonts.googleapis.com" rel="preconnect"/>
